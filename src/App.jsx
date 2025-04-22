@@ -11,6 +11,8 @@ import FavoritesList from "./components/FavoritesList";
   Components: NameCard, FavoritesList
 */
 
+// Define arrays of boy and girl pet names
+// Prompt: Create two arrays, one for boy pet names and one for girl pet names
 const boyNames = [
   "Waffles", "Pickles", "Ziggy", "Toast", "Nugget", 
   "Snickers", "Goose", "Ravioli", "Bingo", "Max",
@@ -32,16 +34,17 @@ const girlNames = [
 ];
 
 function App() {
+  // Prompt: Use state to track the current name and the list of favorited names
   const [currentName, setCurrentName] = useState("");
   const [favorites, setFavorites] = useState([]);
 
-  // Pick a random name from the specified list
+  // Prompt: Write a function to pick a random name from a given list
   const getNewName = (list) => {
     const random = list[Math.floor(Math.random() * list.length)];
     setCurrentName(random);
   };
 
-  // Add current name to favorites
+  // Prompt: Write a function to add the current name to the favorites list
   const addFavorite = () => {
     if (currentName && !favorites.includes(currentName)) {
       setFavorites([...favorites, currentName]);
@@ -49,14 +52,17 @@ function App() {
   };
 
   return (
+    // Prompt: Create a simple UI with a title, a name card, and a favorites list
     <div style={{ textAlign: "center", fontFamily: "Arial", padding: "2rem" }}>
       <h1>🐾 Pet Name Suggester</h1>
+      {/* Prompt: Pass props to the NameCard component for displaying the current name and handling button clicks */}
       <NameCard 
         name={currentName}
         onBoyClick={() => getNewName(boyNames)}
         onGirlClick={() => getNewName(girlNames)}
         onFavorite={addFavorite}
       />
+      {/* Prompt: Pass the favorites array to the FavoritesList component */}
       <FavoritesList favorites={favorites} />
     </div>
   );
