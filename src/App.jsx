@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import NameCard from "./components/NameCard";
+import FavoritesList from "./components/FavoritesList";
+
+/*
+  App: Pet Name Suggester
+  Features:
+    - Show a random boy or girl pet name
+    - User can favorite names
+    - Display a list of favorited names
+  Components: NameCard, FavoritesList
+*/
+
+const boyNames = [
+  "Waffles", "Pickles", "Ziggy", "Toast", "Nugget", 
+  "Snickers", "Goose", "Ravioli", "Bingo", "Max"
+];
+
+const girlNames = [
+  "Luna", "Mochi", "Marshmallow", "Bubbles", "Tater Tot", 
+  "Sprinkles", "Pebbles", "Daisy", "Bella", "Cookie"
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentName, setCurrentName] = useState("");
+  const [favorites, setFavorites] = useState([]);
+
+  // Pick a random name from the specified list
+  const getNewName = (list) => {
+    const random = list[Math.floor(Math.random() * list.length)];
+    setCurrentName(random);
+  };
+
+  // Add current name to favorites
+  const addFavorite = () => {
+    if (currentName && !favorites.includes(currentName)) {
+      setFavorites([...favorites, currentName]);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div style={{ textAlign: "center", fontFamily: "Arial", padding: "2rem" }}>
+      <h1>🐾 Pet Name Suggester</h1>
+      <NameCard 
+        name={currentName}
+        onBoyClick={() => getNewName(boyNames)}
+        onGirlClick={() => getNewName(girlNames)}
+        onFavorite={addFavorite}
+      />
+      <FavoritesList favorites={favorites} />
+    </div>
+  );
 }
 
-export default App
+export default App;
