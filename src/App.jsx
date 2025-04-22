@@ -13,12 +13,22 @@ import FavoritesList from "./components/FavoritesList";
 
 const boyNames = [
   "Waffles", "Pickles", "Ziggy", "Toast", "Nugget", 
-  "Snickers", "Goose", "Ravioli", "Bingo", "Max"
+  "Snickers", "Goose", "Ravioli", "Bingo", "Max",
+  "Buddy", "Charlie", "Rocky", "Toby", "Oliver",
+  "Potter", "Finn", "Leo", "Milo", "Jack",
+  "Cooper", "Duke", "Bear", "Murphy", "Tucker",
+  "Zeus", "Gizmo", "Buster", "Rusty", "Sammy",
+  "Ollie", "Chester", "Jasper", "Rocco", "Thor",
 ];
 
 const girlNames = [
   "Luna", "Mochi", "Marshmallow", "Bubbles", "Tater Tot", 
-  "Sprinkles", "Pebbles", "Daisy", "Bella", "Cookie"
+  "Sprinkles", "Pebbles", "Daisy", "Bella", "Cookie",
+  "Ranger", "Scout", "Pudding", "Cupcake", "Pumpkin",
+  "Zara", "Willow", "Hazel", "Coco", "Nala",
+  "Sophie", "Chloe", "Sadie", "Ruby", "Maggie",
+  "Penny", "Zoey", "Roxy", "Lola", "Ginger",
+  "Molly", "Trixie", "Piper", "Sasha", "Gracie",
 ];
 
 function App() {
