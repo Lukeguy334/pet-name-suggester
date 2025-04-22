@@ -1,7 +1,3 @@
-import { useState } from "react";
-import NameCard from "./components/NameCard";
-import FavoritesList from "./components/FavoritesList";
-
 /*
   App: Pet Name Suggester
   Features:
@@ -10,6 +6,11 @@ import FavoritesList from "./components/FavoritesList";
     - Display a list of favorited names
   Components: NameCard, FavoritesList
 */
+
+import { useState } from "react";
+import NameCard from "./components/NameCard";
+import FavoritesList from "./components/FavoritesList";
+
 
 // Define arrays of boy and girl pet names
 // Prompt: Create two arrays, one for boy pet names and one for girl pet names
